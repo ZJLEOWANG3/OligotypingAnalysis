@@ -9,8 +9,8 @@
 ## Set variables
 
 # Adjust the file names to your own study - these are the files from the mothur SOP
-mothur="mothur"
-mafft="mafft"
+mothur="/home/a.onnis-hayden/opt/mothur/1.48.0/bin/mothur"
+mafft="/home/a.onnis-hayden/opt/mafft/7.505/bin/mafft"
 in_prefix="mothur.output.seqs"
 if [[ -z $SLURM_CPUS_PER_TASK ]]; then
 	processors=1
