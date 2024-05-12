@@ -124,13 +124,13 @@ Note that this script is designed to work with `slurm` in a cluster-like environ
 Now we are done with `mothur2oligo`, and need to swtich to `oligotyping`:
 
 ```bash
-$ cd ../oligotyping
+cd ../oligotyping
 ```
 
 Then run:
 
 ```bash
-$ bash script/entropy_analysis.sh
+bash script/entropy_analysis.sh > entropy_analysis.logfile
 ```
 
 It will generate abunch of files, the most important are:
@@ -143,7 +143,7 @@ It will generate abunch of files, the most important are:
 Now we run oligotyping based on the entropy just calculated and the positions selected:
 
 ```bash
-$ bash script/oligotyping.sh
+bash script/oligotyping.sh
 ```
 
 The results will be saved in `mothur2oligo.fasta.oligo_final`.
@@ -153,7 +153,7 @@ The results will be saved in `mothur2oligo.fasta.oligo_final`.
 Note the above approach is a very loose approach that will result in a lot of oligotypes apparently. This is because we haven't done any filtering yet. The "official" way to do is to pass the `-M` argument a positive integer to the `oligotype` script in `script/oligotyping.sh`. This argument will filter out any oligos that have a count number lower it. However I find this hard-coded way is not flexible and requires some human intervention as the threashold may change based on both the abundance of the targeted taxon and sequncing depth. Alternatively, I decide to go another way using custom script, for example:
 
 ```bash
-$ python script/get_abund_oligo_list.py \
+python script/get_abund_oligo_list.py \
 	mothur2oligo.fasta.oligo_final \
 	--abund-threshold 0.1 \
 	--count-threshold 10 \
