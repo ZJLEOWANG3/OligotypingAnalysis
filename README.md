@@ -130,7 +130,7 @@ cd ../oligotyping
 Then run:
 
 ```bash
-bash script/entropy_analysis.sh > entropy_analysis.logfile
+bash script/entropy_analysis.sh
 ```
 
 It will generate abunch of files, the most important are:
