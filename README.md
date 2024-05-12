@@ -95,7 +95,9 @@ Bacteria(100);Proteobacteria(100);Gammaproteobacteria(100);Pseudomonadales(100);
 Then discard all the bootstrapping numbers (with the parenthese):
 
 ```
-Bacteria;Proteobacteria;Gammaproteobacteria;Pseudomonadales;Moraxellaceae;Acinetobacter;
+vim extract_taxon
+# put below extracted part to the file
+# Bacteria;Proteobacteria;Gammaproteobacteria;Pseudomonadales;Moraxellaceae;Acinetobacter;
 ```
 
 Note that we need to preserve every single semicolun `;` including the last one. Then save the above taxonomy text in the file `extract_taxon` (using any text editor).
@@ -112,7 +114,7 @@ This is done using the `script/mothur2oligo.sh` script. The procedure contains:
 To do all above, run:
 
 ```bash
-$ bash script/mothur2oligo.sh
+bash script/mothur2oligo.sh > mothur2oligo.logfile
 ```
 
 Note that this script is designed to work with `slurm` in a cluster-like environment. You might need to configure it accordingly (e.g. configure correct paths to `mothur`/`mafft` and number of processors) to run it on your own machine or cluster.
