@@ -40,6 +40,12 @@ Run the mothur SOP in `mothur/`, following the procedure described in `mothur/RE
 
 ## Oligotyping example run
 
+### 0. Check the relative abundance to select which genus you want to work on
+```bash
+scp -r xfer-discovery:$path/abundance/ ./
+# if the relative abundance less than 0.5% relative abundance, the oligo seqs may not be sufficient to reveal the results
+```
+
 ### 1. Copy analysis template
 
 Oligotyping can only be done at per-taxonomy basis. Usually it's used to resolve finer taxonomy clusters than genus/species level.
