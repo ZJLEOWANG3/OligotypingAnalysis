@@ -52,7 +52,9 @@ git clone $HTTPS
 cd OligotypingAnalysis
 cp -r oligo.prototype/ oligo.acinetobacter/
 # or for accumulibacter
-cp -r oligo.prototype/ oligo.acc/
+#cp -r oligo.prototype/ oligo.acc/
+# or for tetrasphaera
+#cp -r oligo.prototype/ oligo.tet/
 ```
 
 ### 2. Pick taxon name
@@ -62,6 +64,9 @@ It is essential to pick the taxonomy subject to this analysis. This information 
 ```bash
 # get into the mothur2oligo directory
 cd oligo.acinetobacter/mothur2oligo
+#cd oligo.acc/mothur2oligo
+#cd oligo.tet/mothur2oligo
+
 # change the symbolic link to real mothur.output file
 rm mothur.output
 
@@ -71,7 +76,9 @@ ln -s ~/scratch/PROJECTS/J5506_KYLIE_CLOSE_AOEHMEN_GROUP/Amplicon_Sequencing_Ana
 grep -i 'acinetobacter' mothur.output.seqs.taxonomy
 
 # for accumulibacter
-grep -i 'accumulibacter' mothur.output.seqs.taxonomy
+#grep -i 'accumulibacter' mothur.output.seqs.taxonomy
+# for tetrasphaera
+#grep -i 'tetrasphaera' mothur.output.seqs.taxonomy
 ```
 
 Note the file `mothur.output.seqs.taxonomy` is a symbolic link to the actual mothur output file. If you setup the environment correctly and `mothur` SOP finished correctly, these files should exist.
