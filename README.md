@@ -47,7 +47,10 @@ Oligotyping can only be done at per-taxonomy basis. Usually it's used to resolve
 The `oligo.prototype` is a analysis template for each targeted taxon. So first copy the entire `oligo.prototype` directory for our analysis, we'll use the genus `Acinetobacter` as an exampe in this case:
 
 ```bash
-$ copy -r oligo.prototype/ oligo.acinetobacter/
+mkdir $parent_16S_folder/Oligo
+git clone $HTTPS
+cd OligotypingAnalysis
+cp -r oligo.prototype/ oligo.acinetobacter/
 ```
 
 ### 2. Pick taxon name
