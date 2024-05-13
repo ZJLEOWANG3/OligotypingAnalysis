@@ -21,3 +21,7 @@ ln -sfT $out_dir mothur2oligo.fasta.oligo_final
 script/plot.oligo_size_histogram.py \
 	-p $out_dir.oligo_size_histogram.png \
 	$out_dir
+
+script/plot.oligo_abund_stackbar.py \
+	-p $out_dir.oligo_abund_stackbar.png \
+ 	$out_dir
