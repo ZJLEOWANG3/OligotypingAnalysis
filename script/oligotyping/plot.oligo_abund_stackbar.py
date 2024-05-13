@@ -183,13 +183,17 @@ class OligoColorList(list):
 
 
 def plot_oligo_abund_stackbar(png, count_table: OligoCountTable, *,
-		oligo_list_file=None, dpi=300):
+		n_oligos=20, oligo_list_file=None, dpi=300):
 	# calculate the total count from the original table
 	total_counts = count_table.sample_count_sum
 
 	# select oligos if necessary
 	if oligo_list_file is not None:
 		count_table = count_table.select_by_oligo_list_file(oligo_list_file)
+	else:
+		count_table = count_table.select_by_oligo_list(
+			count_table.oligos[:n_oligos]
+		)
 
 	oligos, samples = count_table.oligos, count_table.samples
 	n_oligos, n_samples = count_table.n_oligos, count_table.n_samples
@@ -247,7 +251,7 @@ def main():
 	count_table = OligoCountTable.from_oligo_outptu_dir(args.oligo_output)
 	# plot
 	plot_oligo_abund_stackbar(args.plot, count_table,
-		oligo_list_file=args.oligo_list, dpi=args.dpi)
+		n_oligos=args.num_oligos, oligo_list_file=args.oligo_list, dpi=args.dpi)
 	return
 
 
