@@ -79,12 +79,12 @@ rm mothur.output
 # example files as below, replace with yours
 ln -s ~/scratch/PROJECTS/J5506_KYLIE_CLOSE_AOEHMEN_GROUP/Amplicon_Sequencing_Analysis/mothur.output mothur.output
 
-grep -i 'acinetobacter' mothur.output.seqs.taxonomy
+grep -i 'acinetobacter' mothur.output.seqs.taxonomy | head
 
 # for accumulibacter
-#grep -i 'accumulibacter' mothur.output.seqs.taxonomy
+#grep -i 'accumulibacter' mothur.output.seqs.taxonomy | head
 # for tetrasphaera
-#grep -i 'tetrasphaera' mothur.output.seqs.taxonomy
+#grep -i 'tetrasphaera' mothur.output.seqs.taxonomy | head
 ```
 
 Note the file `mothur.output.seqs.taxonomy` is a symbolic link to the actual mothur output file. If you setup the environment correctly and `mothur` SOP finished correctly, these files should exist.
