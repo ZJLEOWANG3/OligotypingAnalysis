@@ -161,7 +161,11 @@ Now we run oligotyping based on the entropy just calculated and the positions se
 ```bash
 sbatch script/oligotyping.sh
 
-# remember to save ./mothur2oligo.fasta.oligo_final/*.txt
+# remember to save ./*png ./*.pdf ./mothur2oligo.fasta.oligo_final/*.txt
+
+# scp -r xfer-discovery:"/home/a.onnis-hayden/scratch/PROJECTS/J5506_KYLIE_CLOSE_AOEHMEN_GROUP/Oligo/OligotypingAnalysis/oligo.micropruina/oligotyping/mothur2oligo.fasta.oligo_final/*.txt" ./
+# scp -r xfer-discovery:"/home/a.onnis-hayden/scratch/PROJECTS/J5506_KYLIE_CLOSE_AOEHMEN_GROUP/Oligo/OligotypingAnalysis/oligo.micropruina/oligotyping/*.png" ./
+# scp -r xfer-discovery:"/home/a.onnis-hayden/scratch/PROJECTS/J5506_KYLIE_CLOSE_AOEHMEN_GROUP/Oligo/OligotypingAnalysis/oligo.micropruina/oligotyping/*.pdf" ./
 ```
 
 The results will be saved in `mothur2oligo.fasta.oligo_final`.
