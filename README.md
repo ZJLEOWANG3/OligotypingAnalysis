@@ -143,6 +143,9 @@ cd ../oligotyping
 Then run:
 
 ```bash
+# load python env
+ve-python-3.10-generic
+
 bash script/entropy_analysis.sh
 ```
 
