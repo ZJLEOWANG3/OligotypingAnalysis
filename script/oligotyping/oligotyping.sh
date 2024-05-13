@@ -9,7 +9,7 @@ aln="mothur2oligo.fasta"
 PATH="$HOME/opt/ncbi/blast+-2.13.0/bin:$PATH"
   
 entropy=$aln"-ENTROPY"
-out_dir=$aln".position_oligotype."$(echo $positions | cut -c1-8 | sed 's/,/_/g')
+out_dir=$aln".position_oligotype."$(echo $positions | sed 's/,/_/g' | cut -c1-8)
 
 rm -rf $out_dir # clean up old results
 
