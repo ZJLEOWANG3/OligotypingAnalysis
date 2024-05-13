@@ -220,7 +220,7 @@ sbatch ./script/download.py nt-nucl-metadata.json
 TODO -
 1. alpha diversity of the micro-diversity
 2. check the taxa part
-3. compare Mothur+Oligo versus DADA2
+3. compare Mothur+Oligo versus DADA2 for the ASV-level analysis
 
 
 ```
