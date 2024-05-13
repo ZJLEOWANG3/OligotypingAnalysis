@@ -23,5 +23,6 @@ script/plot.oligo_size_histogram.py \
 	$out_dir
 
 script/plot.oligo_abund_stackbar.py \
+	-n 20 \
 	-p $out_dir.oligo_abund_stackbar.png \
  	$out_dir
