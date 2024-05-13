@@ -212,7 +212,9 @@ def plot_oligo_abund_stackbar(png, count_table: OligoCountTable, *,
 		height = fracs[:, i]
 		p = ax.bar(x, height, width=0.8, bottom=bottom,
 			align="center", edgecolor="#404040", linewidth=0.5,
-			facecolor=colors[i], label=oligos[i])
+			facecolor=colors[i], 
+			label=f"oligo{i}")
+			#label=oligos[i])
 		bottom += height
 		handles.append(p)
 	# add 'others'
