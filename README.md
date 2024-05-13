@@ -211,3 +211,16 @@ Up to this point, the oligotyping analysis is done. The essential output files a
 * `abund_oligo.list`: the list of filtered oligos
 
 There are more things can be interesting, for example determining the taxonomy of each oligo. Those are considered downstream analysis and the approaches are many. So they will not be included in this example.
+
+```bash
+# perform taxa analysis
+# download NCBI NT database once and save it
+sbatch ./script/download.py nt-nucl-metadata.json
+
+TODO -
+1. alpha diversity of the micro-diversity
+2. check the taxa part
+3. compare Mothur+Oligo versus DADA2
+
+
+```
