@@ -160,6 +160,8 @@ Now we run oligotyping based on the entropy just calculated and the positions se
 
 ```bash
 sbatch script/oligotyping.sh
+
+# remember to save ./mothur2oligo.fasta.oligo_final/*.txt
 ```
 
 The results will be saved in `mothur2oligo.fasta.oligo_final`.
