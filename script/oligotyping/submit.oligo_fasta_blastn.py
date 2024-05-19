@@ -15,7 +15,7 @@ def get_args():
 	ap = argparse.ArgumentParser()
 	ap.add_argument("oligo_output", type=str,
 		help="oligotyping output directory")
-	ap.add_argument("--max-n-jobs", "-j", type=int, default=1,
+	ap.add_argument("--max-n-jobs", "-j", type=int, default=20,
 		metavar="int",
 		help="number of maximum SLURM jobs to submit [1]")
 	ap.add_argument("--output-dir", "-O", type=str, default="blastn",
