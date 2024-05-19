@@ -215,7 +215,10 @@ There are more things can be interesting, for example determining the taxonomy o
 ```bash
 # perform taxa analysis
 # download NCBI NT database once and save it
+cd $DB_PATH # e.g. ~/scratch/DATABASE/BLAST
 sbatch ./script/download.py nt-nucl-metadata.json
+# after the download, gunzip
+sbatch ./script/extract.sh
 
 TODO -
 1. alpha diversity of the micro-diversity
