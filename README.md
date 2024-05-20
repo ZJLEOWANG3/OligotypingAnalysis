@@ -222,8 +222,8 @@ wget https://ftp.ncbi.nlm.nih.gov/blast/db/nt-nucl-metadata.json
 # download NCBI NT database once and save it
 cd $DB_PATH # e.g. ~/scratch/DATABASE/BLAST
 sbatch ./script/download.py nt-nucl-metadata.json
-# after the download, gunzip
-sbatch ./script/extract.sh
+# after the download, automatically gunzip
+sbatch -d afterok:$JOBID ./script/extract.sh
 
 # 2. submit the blastn program
 python script/submit.oligo_fasta_blastn.py ./mothur2oligo.fasta.oligo_final/
