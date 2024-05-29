@@ -229,7 +229,7 @@ sbatch -d afterok:$JOBID ./script/extract.sh
 python script/submit.oligo_fasta_blastn.py ./mothur2oligo.fasta.oligo_final/
 
 # 3. summary
-python script/summary.blastn_tax.py ./blastn
+python script/summary.blastn_tax.py ./blastn > ./summary.tsv
 
 TODO -
 1. alpha diversity of the micro-diversity
