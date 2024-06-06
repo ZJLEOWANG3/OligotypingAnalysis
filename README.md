@@ -226,7 +226,8 @@ sbatch ./script/download.py nt-nucl-metadata.json
 sbatch -d afterok:$JOBID ./script/extract.sh
 
 # 2. submit the blastn program
-python script/submit.oligo_fasta_blastn.py ./mothur2oligo.fasta.oligo_final/
+## such as 99479 for [Tetrasphaera](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=99479&lvl=3&lin=f&keep=1&srchmode=1&unlock)
+python script/submit.oligo_fasta_blastn.py ./mothur2oligo.fasta.oligo_final/ --taxid $ncbi_tax_genus_id
 
 # 3. summary
 python script/summary.blastn_tax.py ./blastn > ./summary.tsv
