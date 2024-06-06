@@ -4,6 +4,7 @@
 #SBATCH --time 24:00:00
 
 input_list=$1; shift;
+taxid=$1;shift;
 
 blastn_dir="blastn"
 blast_db="$HOME/scratch/DATABASE/BLAST/nt"
@@ -22,15 +23,20 @@ for fasta_full in $(cat $input_list); do
 	deactivate
 
 	# blastn
-	$blastx_prefix/bin/blastn \
-		-query $blastn_dir/$fasta.fna \
-		-out $blastn_dir/$fasta.fna.blastn \
-		-outfmt "6 qseqid sacc pident evalue bitscore" \
-		-db $blast_db \
-		-max_target_seqs 20 \
-		-perc_identity 99 \
-		-num_threads $SLURM_CPUS_PER_TASK
-
+	
+	blast_cmd=("$blastx_prefix/bin/blastn"
+		"-query" "$blastn_dir/$fasta.fna"
+		"-out" "$blastn_dir/$fasta.fna.blastn"
+		"-outfmt" "6 qseqid sacc pident evalue bitscore"
+		"-db" "$blast_db"
+		"-max_target_seqs" "20"
+		"-perc_identity" "99"
+		"-num_threads" "$SLURM_CPUS_PER_TASK")
+	
+	if [ -n "$taxid" ]; then
+		blast_cmd+=("-taxids" "$taxid") 
+	fi
+	
 	# blastdbcmd
 	cut -f2 -d '	' $blastn_dir/$fasta.fna.blastn > $blastn_dir/$fasta.fna.blastn.hit_accs
 	$blastx_prefix/bin/blastdbcmd \
