@@ -175,7 +175,7 @@ The results will be saved in `mothur2oligo.fasta.oligo_final`.
 Note the above approach is a very loose approach that will result in a lot of oligotypes apparently. This is because we haven't done any filtering yet. The "official" way to do is to pass the `-M` argument a positive integer to the `oligotype` script in `script/oligotyping.sh`. This argument will filter out any oligos that have a count number lower it. However I find this hard-coded way is not flexible and requires some human intervention as the threashold may change based on both the abundance of the targeted taxon and sequncing depth. Alternatively, I decide to go another way using custom script, for example:
 
 ```bash
-python script/get_abund_oligo_list.py \
+python ./script/get_abundant_oligo_list.py \
 	mothur2oligo.fasta.oligo_final \
 	--abund-threshold 0.1 \
 	--count-threshold 10 \
@@ -231,11 +231,10 @@ sbatch -d afterok:$JOBID ./script/extract.sh
 python script/submit.oligo_fasta_blastn.py ./mothur2oligo.fasta.oligo_final/ --taxid $ncbi_tax_genus_id
 
 # 3. summary
-python script/summary.blastn_tax.py ./blastn > ./summary.tsv
+python script/summary.blastn_tax.py ./blastn > ./mothur2oligo.fasta.oligo_final/summary_taxid.tsv
 
-TODO -
-1. alpha diversity of the micro-diversity
-2. compare Mothur+Oligo versus DADA2 for the ASV-level analysis
+# 4. obtain taxonomy and diversity and plot
+python ./script/tax_diversity.py --summary_file ./mothur2oligo.fasta.oligo_final/summary_taxid.tsv --matrix_percent_file ./mothur2oligo.fasta.oligo_final/MATRIX-PERCENT.txt --output_dir ./mothur2oligo.fasta.oligo_final/tax_alpha
 
 
 ```
