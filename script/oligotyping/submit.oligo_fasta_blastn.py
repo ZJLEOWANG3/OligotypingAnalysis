@@ -26,6 +26,8 @@ def get_args():
 		help="log directory [.log]")
 	ap.add_argument("--dry-run", "-N", action="store_true",
 		help="do not submit any jobs or make any changes")
+	ap.add_argument("--taxid", type=int, default=None,
+		help="NCBI taxid to limit BLAST search space")
 
 	# parse and refine args
 	args = ap.parse_args()
@@ -81,13 +83,14 @@ class OligoRepUniqStats(object):
 
 class OligoRepBlastJobSubmit(object):
 	def __init__(self, *ka, oligo_output: str, output_dir: str, log_dir: str,
-			max_n_jobs: int = 1, **kw):
+			max_n_jobs: int = 1, taxid: typing.Optional[int] = None, **kw):
 		super().__init__(*ka, **kw)
 		self.oligo_output = oligo_output
 		self.output_dir = output_dir
 		self.log_dir = log_dir
 		self.max_n_jobs = max_n_jobs
 		self.fasta_stats = OligoRepUniqStats.scan_oligo_output(oligo_output)
+		self.taxid = taxid
 		return
 
 	def submit_jobs(self, dry_run=False) -> int:
@@ -120,6 +123,8 @@ class OligoRepBlastJobSubmit(object):
 			log_file = os.path.join(self.log_dir, job_name + ".log")
 			cmd = ["sbatch", "-J", job_name, "-o", log_file,
 				"script/worker.oligo_fasta_blastn.sh", f]
+			if self.taxid:
+				cmd.append(str(self.taxid))
 			if not dry_run:
 				sp = subprocess.run(cmd, stdout=subprocess.PIPE)
 				print(sp.stdout.decode("utf-8"), file=sys.stdout, end="")
@@ -226,6 +231,7 @@ def main():
 		output_dir=args.output_dir,
 		log_dir=args.log_dir,
 		max_n_jobs=args.max_n_jobs,
+		taxid=args.taxid,
 	)
 	o.submit_jobs(dry_run=args.dry_run)
 	return
