@@ -209,6 +209,7 @@ Up to this point, the oligotyping analysis is done. The essential output files a
 * `mothur2oligo.final.oligo_final/MATRIX-COUNT.txt`: the table of oligo count numbers in each sample
 * `mothur2oligo.final.oligo_final/MATRIX-PERCENT.txt`: the table of oligo abundance percentages in each sample; this is essentially the normalized version of `MATRIX-COUNT.txt`
 * `abund_oligo.list`: the list of filtered oligos
+* `summary.tsv`: the summary of blast results
 
 There are more things can be interesting, for example determining the taxonomy of each oligo. Those are considered downstream analysis and the approaches are many. So they will not be included in this example.
 
