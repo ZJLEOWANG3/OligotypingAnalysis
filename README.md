@@ -225,6 +225,7 @@ cd $DB_PATH # e.g. ~/scratch/DATABASE/BLAST
 sbatch ./script/download.py nt-nucl-metadata.json
 # after the download, automatically gunzip
 sbatch -d afterok:$JOBID ./script/extract.sh
+# then download taxdb and build nt with taxid
 
 # 2. submit the blastn program
 ## such as 99479 for [Tetrasphaera](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=99479&lvl=3&lin=f&keep=1&srchmode=1&unlock)
