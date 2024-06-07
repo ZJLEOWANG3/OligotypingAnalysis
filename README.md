@@ -218,8 +218,9 @@ There are more things can be interesting, for example determining the taxonomy o
 ```bash
 # perform taxa analysis
 # 1. download database
-# download the metadata file https://ftp.ncbi.nlm.nih.gov/blast/db/
+# download the metadata file for nt db and taxdb
 wget https://ftp.ncbi.nlm.nih.gov/blast/db/nt-nucl-metadata.json
+wget https://ftp.ncbi.nlm.nih.gov/blast/db/taxdb-metadata.json
 # download NCBI NT database once and save it
 cd $DB_PATH # e.g. ~/scratch/DATABASE/BLAST
 sbatch ./script/download.py nt-nucl-metadata.json
