@@ -230,6 +230,7 @@ sbatch -d afterok:$JOBID ./script/extract.sh
 
 # 2. submit the blastn program
 ## such as 99479 for [Tetrasphaera](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=99479&lvl=3&lin=f&keep=1&srchmode=1&unlock)
+## 116071 for [micropruina](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=116071&lvl=3&lin=f&keep=1&srchmode=1&unlock)
 python script/submit.oligo_fasta_blastn.py ./mothur2oligo.fasta.oligo_final/ --taxid $ncbi_tax_genus_id
 
 # 3. summary
