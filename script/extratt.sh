@@ -7,8 +7,8 @@ ls nt.*.tar.gz > list
 
 ## for multiple core parallel
 cat list | parallel -j $SLURM_CPUS_PER_TASK tar -zxf {} 
-# tar the last file because there is one file that all files share, which needs to be updated
-tar -zxf $(tail -n1 list)
+# tar taxdb
+tar -zxf taxdb.tar.gz
 
 ## for 1 core
 # for i in $(cat list); do
